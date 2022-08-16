@@ -43,6 +43,7 @@ process prodigal {
 	"""
 }
 
+def suffix_pattern = params.file_pattern.replaceAll(/\*/, "")
 
 workflow {
 	genomes_ch = Channel
@@ -53,9 +54,12 @@ workflow {
 		}
 		.groupTuple(sort: true)
 
+
+	genomes_ch.view()
+
 	/* Classify and annotate the input genomes and filter by annotation */
 
-	prodigal(genomes_ch)
+	// prodigal(genomes_ch)
 
-	eggnog_mapper(prodigal.out.proteins, params.eggnog_db)
+	// eggnog_mapper(prodigal.out.proteins, params.eggnog_db)
 }
