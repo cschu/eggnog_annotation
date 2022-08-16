@@ -1,0 +1,2 @@
+publish_mode: "copy"
+eggnog_db: "/scratch/torka/eggnog"
